@@ -1,4 +1,4 @@
-package main
+package day1
 
 import (
 	"bufio"
@@ -9,8 +9,8 @@ import (
 	"strconv"
 )
 
-func main() {
-	file, err := os.Open("day1.txt")
+func Part1() {
+	file, err := os.Open("./day1.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -21,14 +21,12 @@ func main() {
 	sum := 0
 	for next {
 		txt := scanner.Text()
-		// fmt.Println(txt)
-		i, err := strconv.Atoi(txt)
+		fuel, err := strconv.Atoi(txt)
 		if err != nil {
 			log.Fatal(err)
 		}
-		sum += int(math.Floor(float64(i)/3.0)) - 2
+		sum += int(math.Floor(float64(fuel)/3.0)) - 2
 		next = scanner.Scan()
 	}
-	fmt.Println(sum)
-
+	fmt.Println("Day 1 Part 1", sum)
 }
